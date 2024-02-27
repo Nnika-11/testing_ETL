@@ -35,3 +35,10 @@ def test_productkey_isint(df):
 
 def test_productname_dtype_str(df):
     assert (df['EnglishProductName'].dtype == str or df['EnglishProductName'].dtype == 'O')
+
+#check values in range
+def test_range_val(df):
+    assert df['SafetyStockLevel'].between(0,1000).any()
+
+def test_range_str(df):
+    assert set(df.Color.unique()) =={nan, 'Black', 'Silver', 'Red', 'White', 'Blue', 'Multi', 'Yellow','Grey', 'Silver/Black'}
